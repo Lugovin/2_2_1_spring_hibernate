@@ -12,21 +12,16 @@ import java.util.List;
 public class MainApp {
     public static void main(String[] args) throws SQLException {
 
-        User kolya = new User("KOlya", "lugovin", "user1@mail.ru", new Car("Honda", "Civic"));
-        User misha = new User("Misha", "Ivanov", "user2@mail.ru", new Car("Kia", "Ceed"));
-        User vasya = new User("Vasya", "Petrov", "user3@mail.ru", new Car("VW", "Touager"));
-        User oleg = new User("Oleg", "Sidorov", "user4@mail.ru", new Car("Opel", "Astra"));
-
 
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
 
         UserService userService = context.getBean(UserService.class);
 
-        userService.add(kolya);
-        userService.add(misha);
-        userService.add(vasya);
-        userService.add(oleg);
+        userService.add(new User("KOlya", "lugovin", "user1@mail.ru", new Car("Honda", "Civic")));
+        userService.add(new User("Misha", "Ivanov", "user2@mail.ru", new Car("Kia", "Ceed")));
+        userService.add(new User("Vasya", "Petrov", "user3@mail.ru", new Car("VW", "Touager")));
+        userService.add(new User("Oleg", "Sidorov", "user4@mail.ru", new Car("Opel", "Astra")));
 
 
         List<User> users = userService.listUsers();
