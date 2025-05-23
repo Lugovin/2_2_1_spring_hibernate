@@ -5,7 +5,6 @@ import hiber.model.Car;
 import hiber.model.User;
 import hiber.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -18,10 +17,10 @@ public class MainApp {
 
         UserService userService = context.getBean(UserService.class);
 
-        userService.add(new User("KOlya", "lugovin", "user1@mail.ru", new Car("Honda", "Civic")));
-        userService.add(new User("Misha", "Ivanov", "user2@mail.ru", new Car("Kia", "Ceed")));
-        userService.add(new User("Vasya", "Petrov", "user3@mail.ru", new Car("VW", "Touager")));
-        userService.add(new User("Oleg", "Sidorov", "user4@mail.ru", new Car("Opel", "Astra")));
+        userService.add(new User("KOlya", "lugovin", "user1@mail.ru", new Car("Honda", 2000)));
+        userService.add(new User("Misha", "Ivanov", "user2@mail.ru", new Car("LC", 300)));
+        userService.add(new User("Vasya", "Petrov", "user3@mail.ru", new Car("FIAT", 500)));
+        userService.add(new User("Oleg", "Sidorov", "user4@mail.ru", new Car("VAZ", 2106)));
 
 
         List<User> users = userService.listUsers();
@@ -35,7 +34,7 @@ public class MainApp {
         }
 
 
-        System.out.println(userService.getUserByCar("Honda", "Civic"));
+        System.out.println(userService.getUserByCar("FIAT", 500));
 
 
         context.close();
